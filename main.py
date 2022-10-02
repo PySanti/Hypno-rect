@@ -65,7 +65,7 @@ CLOCK               =   pygame.time.Clock()
 WINDOW_COLOR        = (255,255,255)
 
 
-RECT_SPEED          =   1
+RECT_SPEED          =   0.3
 RECT_COLOR          =   [0,0,0]
 RECT_SIZE           =   [100,100]
 RECT_INITIAL_POSITION = [100,WINDOW_SIZE[1]/2]
@@ -75,7 +75,7 @@ MAIN_RECT           = MovingRect(RECT_INITIAL_POSITION, RECT_COLOR, RECT_SIZE, R
 BACK_RECT           = MovingRect([RECT_INITIAL_POSITION[0]/2, RECT_INITIAL_POSITION[1]/2], RECT_COLOR, RECT_SIZE, RECT_SPEED, MAIN_RECT, RECT_SIZE_INCREASE, RECT_SIZE_DEACREASE_LIMIT)
 RECTS = [MAIN_RECT, BACK_RECT]
 BORDERS_SIZE        =   3
-CORNER_SIZE         =   5
+CORNER_SIZE         =   2
 
 def updateRects(RECTS,WINDOW_SIZE, WINDOW):
     for rect in RECTS:
@@ -106,7 +106,7 @@ def drawCornerCircelsRects(RECTS, WINDOW, corner_color, corner_size):
                         rect.rect.bottomright,
                         ]
         for point in points:
-            pygame.draw.circle(WINDOW, corner_color,point,corner_size)
+            pygame.draw.circle(WINDOW, corner_color,point,corner_size*rect.size[0]/100)
 
 
 
